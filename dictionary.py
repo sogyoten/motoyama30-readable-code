@@ -1,1 +1,3 @@
-print("上手")
+with open("./test.txt") as f:
+    for line in f:
+        print(line)
