@@ -14,19 +14,20 @@ def hasArgument(arg_list):
     bool
         引数が存在するときTure
     """
-    if len(arg_list) >= 2:
+    if len(arg_list) >= 3:
         return True
     else :
         return False
 
 # definition and input        
-arg_list = sys.argv #コマンドライン引数のリスト
+arg_list  = sys.argv #コマンドライン引数のリスト
 word_dict = {}
 id = 1
 
 # file input to word_dict
 # dictionary_data.txtからデータを1行ずつ取得
-with open("dictionary_data.txt") as file:
+file_name = arg_list[1]
+with open(file_name) as file:
     for data in file:
         word_dict[id] = data.rstrip("\n")
         id += 1
@@ -34,7 +35,7 @@ file.close()
 
 # output
 if hasArgument(arg_list):
-    arg = int(arg_list[1]) #指定されたID
+    arg = int(arg_list[2]) #指定されたID
     print(str(arg) + ": " + word_dict[arg])
 else :
     for id in word_dict:
